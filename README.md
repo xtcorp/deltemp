@@ -5,7 +5,6 @@ Lazy way to delete temp, windows.old, recycle bin, dumps, logs. Also starts Disk
 Recycle bin
 Windows.old
 Windows temp and dumps
-Windows Prefetch
 Local/Roaming/LocalLow temp
 AMD, Intel, Nvidia Driver leftovers
 Games and programs cache and logs (example: steam avatarcache)
