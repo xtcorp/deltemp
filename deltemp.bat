@@ -22,12 +22,12 @@ if %errorlevel%==0 (
 
     @REM Deleting temp
     @REM Driver leftovers/Installers
-        @REM call:delete_dir_itself "%SystemDrive%\AMD"
-        @REM call:delete_files_and_subdirs "%SystemDrive%\AMD"
-        @REM call:delete_dir_itself "%SystemDrive%\Intel"
-        @REM call:delete_files_and_subdirs "%SystemDrive%\Intel"
-        @REM call:delete_dir_itself "%SystemDrive%\Nvidia"
-        @REM call:delete_files_and_subdirs "%SystemDrive%\Nvidia"
+    call:delete_dir_itself "%SystemDrive%\AMD"
+    call:delete_files_and_subdirs "%SystemDrive%\AMD"
+    call:delete_dir_itself "%SystemDrive%\Intel"
+    call:delete_files_and_subdirs "%SystemDrive%\Intel"
+    call:delete_dir_itself "%SystemDrive%\Nvidia"
+    call:delete_files_and_subdirs "%SystemDrive%\Nvidia"
     @REM Windows prefetch cache, dumps, update leftovers, migrated oc
     call:delete_dir_itself "%SystemDrive%\PerfLogs"
     call:delete_dir_itself "%SystemDrive%\Windows.old"
