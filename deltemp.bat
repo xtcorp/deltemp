@@ -2,6 +2,12 @@
 
 @REM https://vk.com/xtcorp
 
+@REM C:\Windows\Logs - ?
+@REM %SystemDrive%\ProgramData\Package Cache - Includes VS uninstallers, clean carefully. Some viruses bases on that folder
+@REM C:\Program Files\NVIDIA Corporation\Installer2 - ? https://support.nvidia.eu/hc/ru/articles/211970009-%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D0%BC%D0%BE%D0%B5-%D0%B4%D0%B8%D1%81%D0%BA%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D1%80%D0%B8-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B5-%D0%B4%D1%80%D0%B0%D0%B9%D0%B2%D0%B5%D1%80%D0%BE%D0%B2-NVIDIA-%D0%9F%D0%B0%D0%BF%D0%BA%D0%B0-Installer2-
+@REM RISKY?: %SystemDrive%\ProgramData\*.log or *.dmp or *.bak or *.etl
+
+
 @REM Check if User is Administrator
 openfiles > NUL 2>&1
 if %errorlevel%==0 (
@@ -11,7 +17,7 @@ if %errorlevel%==0 (
     @REM %temp% is not used because of different behaviour as "%Temp%", "%temp%", "Temp","temp". unexpected behaivour in different OC's, so %HomePath% used instead
     @REM %appdata% is not used because of different behaviour as "%Appdata%", "%appdata%", "Appdata" and "appdata". unexpected behaivour in different OC's, so %HomePath% used instead
 
-    @REM Emptying Recycle bin
+    @REM Emptying Recycle bin and bins from older systems/older drives
     call:delete_files_and_subdirs "%SystemDrive%\$Recycle.Bin"
 
     @REM Deleting temp
@@ -104,12 +110,15 @@ if %errorlevel%==0 (
     call:delete_files_and_subdirs "%HomePath%\AppData\Local\ForzaHorizon4\scratch\GraphicsCache"
     call:delete_files_and_subdirs "%HomePath%\AppData\Roaming\Adobe\Common\Media Cache"
     call:delete_files_and_subdirs "%HomePath%\AppData\Roaming\Adobe\Common\Media Cache Files"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\pip\cache"
 
     @REM SLOW CALLS
     @REM Windows prefetch cache
-    call:delete_files_in_dir "%windir%\Prefetch"
+    @REM call:delete_files_in_dir "%windir%\Prefetch"
+
     @REM Disk Cleanup. Update leftovers
     call:cleanmgr_auto
+
     @REM Disk Cleanup. Custom
     call:cleanmgr_low
 
