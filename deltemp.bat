@@ -120,10 +120,23 @@ if %errorlevel%==0 (
     call:delete_files_and_subdirs "%HomePath%\AppData\Local\Thorium\User Data\Default\Service Worker\CacheStorage"
     call:delete_files_and_subdirs "%SystemDrive%\Program Files (x86)\Steam\steamapps\workshop\content\4000"
     call:delete_files_and_subdirs "%HomePath%\AppData\Local\Roblox\Downloads"
+    call:delete_files_and_subdirs "%HomePath%\AppData\LocalLow\VRChat\VRChat\Cache-WindowsPlayer"
+    call:delete_files_and_subdirs "%HomePath%\AppData\LocalLow\VRChat\VRChat\TextureCache-WindowsPlayer"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\Steam\htmlcache"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\EpicGamesLauncher\Saved\webcache_4430"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\EpicGamesLauncher\Saved\Crashes"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\EpicGamesLauncher\Saved\Logs"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\enshrouded\caches"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Roaming\CurseForge\Cache"
+    call:delete_files_and_subdirs "%HomePath%\Documents\Need For Speed(TM) Unbound\cache"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\CrashDumps"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\Unity\cache"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\Roblox\UniversalApp\WebView2\EBWebView\Default\Cache"
+    call:delete_files_and_subdirs "%HomePath%\AppData\Local\Roblox\UniversalApp\WebView2\EBWebView\Default\Code Cache"
 
     @REM SLOW CALLS
     @REM Windows prefetch cache
-    @REM call:delete_files_in_dir "%windir%\Prefetch"
+    call:delete_files_in_dir "%windir%\Prefetch"
 
     @REM Disk Cleanup. Update leftovers
     call:cleanmgr_auto
